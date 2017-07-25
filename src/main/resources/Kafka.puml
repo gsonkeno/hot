@@ -1,0 +1,70 @@
+@startuml
+
+interface IMessageHandler<<消息处理器>>{
+~void handleMessage()
+}
+
+class ConsumerRunner<<消费者线程类>>{
+
+- String topicName;//消费主题
+- IMessageHandler handler;//消息处理器
+- KafkaConsumer<String,String > consumer //原生消费者
+- boolean isConsuming //是否处在消费状态中
+
+~ Consumer(String bootstrapServers, String groupId, String topicName, IMessageHandler handler)
+~ void run() //消费消息
+~ void stopConsume() //停止消费消息
+~ getConsumer() //获取消费者
+}
+
+class ConsumerFactory<<消费者工厂>>{
+- Map<String,Consumer> consumerBulk //consumer容器
++ void addConsumer(String topicName,String groupId,Consumer consumer) //增加一个消费者
++ void removeConsumer(String key) //移除一个消费者
++ Map<String, ConsumerRunner> getConsumerBulk() //获取consumer容器
+}
+
+class KafkaClient<<客户端中心>>{
+- String bootstrapServers   //kafka集群服务地址，多个以逗号分隔
+- ConsumerFactory factory  //消费者工厂
+- Producer producer        //生产者
++ sendMessage(ProducerRecordWrapper wrapper)
++ consumeMessage(String topicName,String groupId,IMessageHandler
+  handler,boolean isBlock)
+}
+
+class ProducerConfig<<生产者配置>>{
+~ Properties prop
+~ ProducerConfig(String bootstrapServers)
+~ getProp()
+}
+
+class ConsumerConfig<<消费者配置>>{
+~ Properties prop
+~ ConsumerConfig(String bootstrapServers,String groupId)
+~ getProp()
+}
+
+class ProducerRecordWrapper<<消息包装器>>{
+String topicName; //消息主题
+Integer partition;//分区数量
+Long timestamp; //时间戳
+String key; //消息key
+String value;//消息value
+
+ProducerRecordWrapper(Builder builder)
+
+ProducerRecord getRecord()//获取消息实体
+Builder builder()//获取构建器
+}
+
+KafkaClient .> IMessageHandler
+KafkaClient ..>ProducerRecordWrapper
+KafkaClient --> ConsumerFactory
+KafkaClient ..> ProducerConfig
+ConsumerRunner .> ConsumerConfig
+
+ConsumerFactory --> ConsumerRunner
+
+
+@enduml

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eap-mapping> 
+	<TYPE_NAME indice="first" title="wifi感知" >
+	    <column name="INFO_ID" type="long" primary-key="true" pk-generator="UUID"  index="true" store="false"/>
+		<column name="JGRQ" type="integer"  index="true" store="false" />
+		<column name="JGSJ" type="integer"  index="true" store="false" />
+		<column name="JGSK" type="long" index="true" store="false"/>
+		<column name="DEVICE_ID" type="text" title="设备ID"  index="true" store="false" />
+		<column name="ORIGINAL_DEVICE_ID" type="keyword" title="原始设备ID"  index="true" store="false" />
+		<column name="MAC" type="text"  index="true" store="false" />
+		<column name="MOBILE" type="text"  index="true" store="false" />
+		<column name="FIRST_COLLECTTIME" type="long"  index="false" store="false" />
+		<column name="LAST_COLLECTTIME" type="long" index="false" store="false" />
+		<column name="SCANTIME" type="integer"  index="false" store="false" />
+		<column name="RSSI" type="integer" index="false" store="false" />
+		<column name="AP_MAC" type="text"  index="true" store="false"  />
+		<column name="X" type="keyword"  index="false" store="false" />
+		<column name="Y" type="keyword"  index="false" store="false" />
+		<column name="LONGITUDE" type="keyword"  index="false" store="false" />
+		<column name="LATITUDE" type="keyword" index="false" store="false" />
+		<column name="TERMINAL_BRAND" type="text"  index="false" store="false" />
+		<column name="ORG_CODE" type="text"  index="true" store="false" />
+		<column name="VENDOR" type="text" index="true" store="false" />
+		<column name="DATA_SRC" type="text"  index="true" store="false" />
+		<column name="CJSJ" type="long" index="true" store="false" />
+		<column name="CREATETIME" type="long" title="创建时间yymmddhhmiss"  index="true" store="false" />
+	</TYPE_NAME>
+</eap-mapping>

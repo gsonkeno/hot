@@ -9,9 +9,7 @@ import java.util.Map;
 
 import com.gsonkeno.hot.elasticsearch.metadata.Field;
 import com.gsonkeno.hot.elasticsearch.metadata.Table;
-import com.gsonkeno.hot.utils.DateUtils;
 import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -84,9 +82,7 @@ public class Schema {
 
                     values.put(field.getName(), row.get(field.getName()));
 
-                    if (field.getType().equalsIgnoreCase("Date")) {
-                        values.put(field.getName(), DateUtils.getTimeOff(keyword, DateUtils.standard_sdf, Calendar.HOUR_OF_DAY, 0).replace(' ', 'T'));
-                    }
+
                     if (field.getType().equalsIgnoreCase("text") ) {
                         defaultVal = ObjectUtils.defaultIfNull(row.get(field.getName()), "").toString();
 

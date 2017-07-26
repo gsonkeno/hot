@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  */
 @Target(value ={ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface EsIndex {
+public @interface ES_INXDEX {
     /**索引名称**/
     public  String indexName() default  "index";
 
@@ -22,4 +22,5 @@ public @interface EsIndex {
 
     /**副本，默认0**/
     public  int replicas() default  0;
+
 }

@@ -13,11 +13,9 @@ public class WifiModel {
     @ES_FIELD(fieldType = DataType.KEYWORD,fieldName = "INFO_ID")
     private  String infoId;
 
-    @ES_FIELD(fieldType = DataType.TEXT,fieldName = "ADDRESS",analyzer = "ik_max_word")
+    @ES_FIELD(fieldType = DataType.TEXT,fieldName = "ADDRESS",analyzer = "ik_max_word", store = true)
     private  String address;
 
     @ES_FIELD(fieldType = DataType.KEYWORD,fieldName = "MAC")
     private  String mac;
-
-
 }

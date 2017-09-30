@@ -16,13 +16,15 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by gaosong on 2017-07-25.
@@ -129,5 +131,46 @@ public class EsIndexTest {
 //                prepareCreate(indexName).setSettings(settings).get();
 //
 //        return createIndexResponse.isAcknowledged();
+    }
+
+    @Test
+    public void getClassFromPackage() throws IOException, ClassNotFoundException {
+        String packageName = "org.apache.commons.collections.bag";
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        String path = packageName.replace('.', '/');
+        Enumeration<URL> resources = classLoader.getResources(path);
+        List<File> dirs = new ArrayList<File>();
+        while (resources.hasMoreElements()) {
+            URL resource = resources.nextElement();
+            dirs.add(new File(resource.getFile()));
+        }
+        List<Class> classes = new ArrayList<Class>();
+        for (File directory : dirs) {
+            classes.addAll(findClasses(directory,packageName));
+        }
+
+        System.out.println(classes);
+    }
+
+    private List<Class> findClasses(File directory, String packageName) throws ClassNotFoundException
+    {
+        List<Class> classes = new ArrayList<Class>();
+
+        if (!directory.exists()) {
+            return classes;
+        }
+        File[] files = directory.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                classes.addAll(findClasses(file, packageName + "." + file.getName()));
+            } else if (file.getName().endsWith(".class")) {
+                classes.add(Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
+            }
+        }
+        return classes;
+    }
+
+    public void getClassInJar(){
+
     }
 }

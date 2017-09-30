@@ -6,5 +6,5 @@ package com.gsonkeno.hot.sql;
 public enum DbType {
     SQLSERVER,
     MYSQL,
-    Orcal;
+    Orcl;
 }

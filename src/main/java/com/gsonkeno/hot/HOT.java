@@ -1,6 +1,5 @@
 package com.gsonkeno.hot;
 
-import com.gsonkeno.hot.kafka.KafkaClient;
 import com.gsonkeno.hot.schedule.QuartzScheduleManager;
 import com.gsonkeno.hot.schedule.ScheduleManager;
 

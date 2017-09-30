@@ -1,6 +1,9 @@
 package com.gsonkeno.hot.utils;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -28,5 +31,10 @@ public class FileUtils {
         File file = new File(dirPath);
         org.apache.commons.io.FileUtils.deleteQuietly(file);
         org.apache.commons.io.FileUtils.forceMkdir(file);
+    }
+
+    public static byte[] localFileToByte(String filePath) throws IOException {
+        FileInputStream fis = new FileInputStream(filePath);
+        return IOUtils.toByteArray(fis);
     }
 }

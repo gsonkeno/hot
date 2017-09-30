@@ -3,7 +3,6 @@ package com.gsonkeno.hot.sql;
 import com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource;
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
 import oracle.jdbc.pool.OracleConnectionPoolDataSource;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -12,7 +11,7 @@ import java.sql.SQLException;
  * Created by gaosong on 2017-05-07.
  */
 public class DbManager {
-    private JdbcTemplate jdbc;
+    private JdbcTemplateAdapter jdbc;
 
     public DbManager(String url, String userName, String passWord, DbType dbType){
         DataSource cpds = null;
@@ -31,7 +30,7 @@ public class DbManager {
                 ((MysqlConnectionPoolDataSource)cpds).setPassword(passWord);
                 break;
 
-            case Orcal:
+            case Orcl:
                 try {
                     cpds = new OracleConnectionPoolDataSource();
                     ((OracleConnectionPoolDataSource)cpds).setURL(url);
@@ -44,10 +43,10 @@ public class DbManager {
 
         }
 
-        jdbc = new JdbcTemplate(cpds);
+        jdbc = new JdbcTemplateAdapter(cpds);
     }
 
-    public JdbcTemplate getJdbc(){
+    public JdbcTemplateAdapter getJdbc(){
         return this.jdbc;
     }
 

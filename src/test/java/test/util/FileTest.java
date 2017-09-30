@@ -4,7 +4,6 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -42,5 +41,12 @@ public class FileTest {
         System.out.println(delete); //文件不存在，删除失败，不报异常，返回false
     }
 
+    @Test
+    public void testToByte() throws IOException {
+        byte[] bytes = com.gsonkeno.hot.utils.FileUtils.localFileToByte(System.getProperty("user.dir") +
+                "/src/test/resources/1.jpg");
+        System.out.println(bytes);
+
+    }
 
 }

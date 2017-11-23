@@ -1,5 +1,6 @@
 package test.annotation;
 
+
 import com.gsonkeno.hot.annotation.ES_FIELD;
 import com.gsonkeno.hot.annotation.ES_INXDEX;
 import com.gsonkeno.hot.meta.DataType;

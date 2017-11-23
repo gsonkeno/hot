@@ -1,7 +1,10 @@
 package test.elasticsearch;
 
-import com.gsonkeno.hot.elasticsearch.*;
-import com.gsonkeno.hot.utils.KeyTool;
+
+import com.gsonkeno.hot.elasticsearch.Query;
+import com.gsonkeno.hot.elasticsearch.ResponseHandler;
+import com.gsonkeno.hot.elasticsearch.ScrollRespContainer;
+import com.gsonkeno.hot.elasticsearch.SearchEngine;
 import org.apache.commons.lang.math.RandomUtils;
 import org.dom4j.DocumentException;
 import org.elasticsearch.action.search.SearchResponse;
@@ -13,7 +16,10 @@ import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 

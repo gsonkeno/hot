@@ -2,13 +2,8 @@ package test;
 
 import com.gsonkeno.hot.HOT;
 import org.junit.Test;
-import org.quartz.*;
-import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.SchedulerException;
 import test.schedule.FirstJob;
-
-import static org.quartz.CronScheduleBuilder.cronSchedule;
-import static org.quartz.JobBuilder.newJob;
-import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * Created by gaosong on 2017-04-04.

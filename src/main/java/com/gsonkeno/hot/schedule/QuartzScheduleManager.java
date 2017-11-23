@@ -9,10 +9,10 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-import static org.quartz.CronScheduleBuilder.*;
-import static org.quartz.JobBuilder.*;
+import static org.quartz.CronScheduleBuilder.cronSchedule;
+import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
-import static org.quartz.TriggerBuilder.*;
+import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * Created by gaosong on 2017-04-04.

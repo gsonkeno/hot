@@ -1,7 +1,5 @@
 package com.gsonkeno.hot.kafka;
 
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-
 import java.util.Properties;
 
 /**

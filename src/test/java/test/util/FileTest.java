@@ -43,9 +43,9 @@ public class FileTest {
 
     @Test
     public void testToByte() throws IOException {
-        byte[] bytes = com.gsonkeno.hot.utils.FileUtils.localFileToByte(System.getProperty("user.dir") +
-                "/src/test/resources/1.jpg");
-        System.out.println(bytes);
+//        byte[] bytes = FileUtils.localFileToByte(System.getProperty("user.dir") +
+//                "/src/test/resources/1.jpg");
+//        System.out.println(bytes);
 
     }
 

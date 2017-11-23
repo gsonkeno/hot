@@ -1,12 +1,5 @@
 package com.gsonkeno.hot.elasticsearch;
 
-import java.io.File;
-import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.gsonkeno.hot.elasticsearch.metadata.Field;
 import com.gsonkeno.hot.elasticsearch.metadata.Table;
 import org.apache.commons.lang.ObjectUtils;
@@ -14,6 +7,12 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 维护着若干索引结构

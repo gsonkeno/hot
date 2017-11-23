@@ -1,0 +1,41 @@
+2017-07-26 at 10:42:15 CST INFO  org.elasticsearch.plugins.PluginsService 174 logPluginInfo - no modules loaded
+2017-07-26 at 10:42:15 CST INFO  org.elasticsearch.plugins.PluginsService 177 logPluginInfo - loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2017-07-26 at 10:42:15 CST INFO  org.elasticsearch.plugins.PluginsService 177 logPluginInfo - loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2017-07-26 at 10:42:15 CST INFO  org.elasticsearch.plugins.PluginsService 177 logPluginInfo - loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2017-07-26 at 10:42:15 CST INFO  org.elasticsearch.plugins.PluginsService 177 logPluginInfo - loaded plugin [org.elasticsearch.transport.Netty3Plugin]
+2017-07-26 at 10:42:15 CST INFO  org.elasticsearch.plugins.PluginsService 177 logPluginInfo - loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [force_merge], size [1], queue size [unbounded]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [fetch_shard_started], core [1], max [16], keep alive [5m]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [listener], size [4], queue size [unbounded]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [index], size [8], queue size [200]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [refresh], core [1], max [4], keep alive [5m]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [generic], core [4], max [128], keep alive [30s]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [warmer], core [1], max [4], keep alive [5m]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [search], size [13], queue size [1k]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [flush], core [1], max [4], keep alive [5m]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [fetch_shard_store], core [1], max [16], keep alive [5m]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [management], core [1], max [5], keep alive [5m]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [get], size [8], queue size [1k]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [bulk], size [8], queue size [200]
+2017-07-26 at 10:42:15 CST DEBUG org.elasticsearch.threadpool.ThreadPool 203 <init> - created thread pool: name [snapshot], core [1], max [4], keep alive [5m]
+2017-07-26 at 10:42:17 CST DEBUG org.elasticsearch.common.network.IfConfig 107 doLogging - configuration:
+
+lo
+        Software Loopback Interface 1
+        inet 127.0.0.1 netmask:255.0.0.0 broadcast:127.255.255.255 scope:host
+        inet6 ::1 prefixlen:128 scope:host
+        UP MULTICAST LOOPBACK mtu:-1 index:1
+
+wlan0
+        Microsoft Wi-Fi Direct Virtual Adapter #2
+        inet6 fe80::9102:7626:b665:4ad4 prefixlen:64 scope:link
+        hardware 58:FB:84:20:6B:D4
+        MULTICAST mtu:1500 index:2
+
+net0
+        Microsoft ISATAP Adapter
+        inet6 fe80::5efe:c0a8:3801 prefixlen:128 scope:link
+        hardware 00:00:00:00:00:00:00:E0
+        POINTOPOINT mtu:1280 index:3
+
+net1

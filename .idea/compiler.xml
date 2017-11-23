@@ -6,13 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hot" />
+        <module name="jdbc" />
+        <module name="utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hot" target="1.8" />
+      <module name="jdbc" target="1.8" />
       <module name="other" target="1.5" />
       <module name="others" target="1.5" />
+      <module name="test" target="1.8" />
+      <module name="utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -45,10 +45,11 @@ public class ZipUtils {
      * 解压zip文件中指定文件 <code> entryName</code> 到指定路径<code>outFilePath</code>
      *
      * @param zipFilePath zip文件
-     * @param outFilePath 解压后文件路径
-     * @param entryName   指定文件名称
+     * @param outFilePath 解压后文件路径. 该文件可不存在，但其父目录必须存在
+     * @param entryName   指定文件名称,相对zip文件的根路径，如zip文件里的a/b/c.txt
      */
     public static void deCompress(String zipFilePath, String outFilePath, String entryName) {
+
         try(ZipFile zipFile = new ZipFile(zipFilePath);
             InputStream is = zipFile.getInputStream(zipFile.getEntry(entryName));
             FileOutputStream fos = new FileOutputStream(new File(outFilePath))) {

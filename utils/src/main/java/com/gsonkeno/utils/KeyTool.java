@@ -1,8 +1,9 @@
-package com.gsonkeno.hot.utils;
+package com.gsonkeno.utils;
 
 import java.util.UUID;
 
 /**
+ * 主键生成器
  * Created by gaosong on 2017-05-07.
  */
 public class KeyTool {
@@ -12,7 +13,4 @@ public class KeyTool {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(getUUID().length());
-    }
 }

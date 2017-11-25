@@ -34,6 +34,12 @@ public class FileUtils {
         org.apache.commons.io.FileUtils.forceMkdir(file);
     }
 
+    /**
+     * 本地文件转字节数组
+     * @param filePath
+     * @return
+     * @throws IOException
+     */
     public static byte[] localFileToByte(String filePath) throws IOException {
         FileInputStream fis = new FileInputStream(filePath);
         return IOUtils.toByteArray(fis);

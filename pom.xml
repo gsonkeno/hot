@@ -39,6 +39,9 @@
     <modules>
         <module>jdbc</module>
         <module>utils</module>
+        <module>elasticsearch</module>
+        <module>elasticsearch5_3</module>
+        <module>redis</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -61,12 +64,6 @@
             <version>4.10</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/transport-netty3-client -->
-
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>transport</artifactId>
-            <version>5.3.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -132,13 +129,6 @@
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
             <version>3.5</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.39</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.j2objc/j2objc-annotations -->

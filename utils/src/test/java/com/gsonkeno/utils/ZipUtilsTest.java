@@ -35,4 +35,15 @@ public class ZipUtilsTest {
                 this.getClass().getResource("/").getFile() + "m.txt","b/c.txt");
 
     }
+
+    @Test
+    public void testCompress(){
+        long begin = System.currentTimeMillis();
+        ZipUtils.compressDir("D:\\test\\m", "test1.zip","D:\\test\\");
+        long end = System.currentTimeMillis();
+
+        System.out.println("耗时(s):" + (end-begin)/1000);
+    }
+
+
 }

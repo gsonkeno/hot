@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Eclipse" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="elasticsearch" />
+        <module name="elasticsearch5.3" />
         <module name="jdbc" />
+        <module name="redis" />
         <module name="utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="elasticsearch" target="1.8" />
+      <module name="elasticsearch5.3" target="1.8" />
       <module name="hot" target="1.8" />
       <module name="jdbc" target="1.8" />
-      <module name="other" target="1.5" />
-      <module name="others" target="1.5" />
-      <module name="test" target="1.8" />
+      <module name="redis" target="1.8" />
       <module name="utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>

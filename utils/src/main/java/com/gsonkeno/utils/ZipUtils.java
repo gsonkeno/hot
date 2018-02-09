@@ -13,6 +13,7 @@ import java.util.zip.ZipOutputStream;
  */
 public class ZipUtils {
 
+      private static int BUFFER_SIZE = 8196;
     /**
      * 压缩单个文件
      *
@@ -29,7 +30,7 @@ public class ZipUtils {
             ZipEntry entry = new ZipEntry(fileName);
 
             zos.putNextEntry(entry);
-            byte[] b = new byte[1024];
+            byte[] b = new byte[BUFFER_SIZE];
             int len;
             while ((len = is.read(b)) > 0) {
                 zos.write(b, 0, len);
@@ -37,6 +38,80 @@ public class ZipUtils {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * 压缩sourceDir目录下的所有文件到zipDir目录下名称为zipName的zip文件中
+     * @param sourceDir
+     * @param zipName
+     * @param zipDir
+     */
+    public static void compressDir(String sourceDir, String zipName, String zipDir){
+        File sourceFile = new File(sourceDir);
+        FileInputStream fis;
+        BufferedInputStream bis = null;
+        FileOutputStream fos;
+        ZipOutputStream zos = null;
+
+        if(sourceFile.exists() == false){
+            System.out.println("待压缩的文件目录："+sourceDir+"不存在.");
+        }else{
+            try {
+                File zipFile = new File(zipDir +File.separator + zipName );
+                if(zipFile.exists()){
+                    System.out.println(zipDir + "目录下存在名字为:" + zipName +"打包文件.");
+                }else{
+                    File[] sourceFiles = sourceFile.listFiles();
+                    if(null == sourceFiles || sourceFiles.length<1){
+                        System.out.println("待压缩的文件目录：" + sourceDir + "里面不存在文件，无需压缩.");
+                    }else{
+                        fos = new FileOutputStream(zipFile);
+                        zos = new ZipOutputStream(new BufferedOutputStream(fos));
+                        byte[] bufs = new byte[BUFFER_SIZE];
+
+                        for(int i=0;i<sourceFiles.length;i++){
+                            compress("",sourceFiles[i],zos);
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            } finally{
+                //关闭流
+                try {
+                    if(null != bis) bis.close();
+                    if(null != zos) zos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    private static  void compress(String prefix, File sourceFile, ZipOutputStream zos) throws IOException {
+        if (sourceFile.isDirectory()){
+            File[] files = sourceFile.listFiles();
+            for (File file : files){
+                compress(sourceFile.getName(),file, zos);
+            }
+        }else{
+            //创建ZIP实体，并添加进压缩包
+            ZipEntry zipEntry = new ZipEntry(prefix + File.separator + sourceFile.getName());
+            zos.putNextEntry(zipEntry);
+            //读取待压缩的文件并写进压缩包里
+            FileInputStream fis = new FileInputStream(sourceFile);
+            BufferedInputStream bis = new BufferedInputStream(fis, BUFFER_SIZE);
+            int read = 0;
+            byte[] bufs = new byte[BUFFER_SIZE];
+            while((read=bis.read(bufs, 0, BUFFER_SIZE)) != -1){
+                zos.write(bufs,0,read);
+            }
         }
     }
 
@@ -54,7 +129,7 @@ public class ZipUtils {
             InputStream is = zipFile.getInputStream(zipFile.getEntry(entryName));
             FileOutputStream fos = new FileOutputStream(new File(outFilePath))) {
 
-            byte[] b = new byte[1024];
+            byte[] b = new byte[BUFFER_SIZE];
             int len;
             while ((len = is.read(b)) > 0) {
                 fos.write(b, 0, len);
@@ -95,7 +170,7 @@ public class ZipUtils {
                 try ( InputStream is = zipFile.getInputStream(entry);
                       OutputStream os = new FileOutputStream(outPathFile)) {
 
-                    byte[] b = new byte[1024];
+                    byte[] b = new byte[BUFFER_SIZE];
                     int len;
                     while ((len = is.read(b)) > 0) {
                         os.write(b, 0, len);
